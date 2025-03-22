@@ -22,8 +22,8 @@ int main() {
   float densidadePopC1, densidadePopC2; // Densidade Populacional
   float PIBpCaptaC1, PIBpCaptaC2; //PIB per Capta
   float superpoderC1, superpoderC2; 
-  char Carta1 = 1, Carta2 = 2;
-  int resultado;
+  int pontosC1 = 0, pontosC2 = 0;
+  char resultado;
 
   // Entrada de dados - Carta 1!
 
@@ -122,26 +122,43 @@ int main() {
 
   sleep(2);
 
+  // Declaração de Variaveis de Resultado
+
+  char *vencedorPop = (populacaoC1 > populacaoC2) ? "Carta 1" : "Carta 2";
+  char *vencedorArea = (areaC1 > areaC2) ? "Carta 1" : "Carta 2";
+  char *vencedorPIB = (PIBC1 > PIBC2) ? "Carta 1" : "Carta 2";
+  char *vencedorPontos = (pontoTC1 > pontoTC2) ? "Carta 1" : "Carta 2";
+  char *vencedorDensidade = (densidadePopC1 < densidadePopC2) ? "Carta 1" : "Carta 2";
+  char *vencedorPIBpCapta = (PIBpCaptaC1 > PIBpCaptaC2) ? "Carta 1" : "Carta 2";
+  char *vencedorSuperPoder = (superpoderC1 > superpoderC2) ? "Carta 1" : "Carta 2";
+
+  pontosC1 += (populacaoC1 > populacaoC2);
+  pontosC1 += (areaC1 > areaC2);
+  pontosC1 += (PIBC1 > PIBC2);
+  pontosC1 += (pontoTC1 > pontoTC2);
+  pontosC1 += (densidadePopC1 < densidadePopC2);
+  pontosC1 += (PIBpCaptaC1 > PIBpCaptaC2);
+  pontosC1 += (superpoderC1 > superpoderC2);
+
+  pontosC2 = 7 - pontosC1; // Para se não for ponto da Carta 1, então vai ser a Carta 2
+
+  resultado = (pontosC1 > pontosC2) ? "Carta 1" : "Carta 2";
+
   printf("---------------- Comparação das Cartas ----------------\n\n");
 
   printf("1 = Carta 1   e   0 = Carta 2\n\n");
 
-  printf("População: %d\n", populacaoC1 > populacaoC2);
-  printf("Área: %d \n", areaC1 > areaC2);
-  printf("PIB: %d\n", PIBC1 > PIBC2);
-  printf("Número de Pontos turísticos: %d\n", pontoTC1 > pontoTC2);
-  printf("Densidade Populacional: %d \n", densidadePopC1 < densidadePopC2);
-  printf("PIB per Capita: %d \n\n", PIBpCaptaC1 > PIBpCaptaC2);
-  printf("Super Poder: %d\n\n\n", superpoderC1 > superpoderC2);
+  printf("População: %d                      (vencedor: %s)\n", populacaoC1 > populacaoC2, vencedorPop);
+  printf("Área: %d                           (vencedor: %s)\n", areaC1 > areaC2, vencedorArea);
+  printf("PIB: %d                            (vencedor: %s)\n", PIBC1 > PIBC2, vencedorPIB);
+  printf("Número de Pontos turísticos: %d    (vencedor: %s)\n", pontoTC1 > pontoTC2, vencedorPontos);
+  printf("Densidade Populacional: %d         (vencedor: %s)\n", densidadePopC1 < densidadePopC2, vencedorDensidade);
+  printf("PIB per Capita: %d                 (vencedor: %s)\n\n", PIBpCaptaC1 > PIBpCaptaC2, vencedorPIBpCapta);
+  printf("Super Poder: %d                    (vencedor: %s)\n\n\n", superpoderC1 > superpoderC2, vencedorSuperPoder);
 
-  resultado = (populacaoC1 > populacaoC2) +  (areaC1 > areaC2) +  
-  (PIBC1 > PIBC2) + (pontoTC1 > pontoTC2) + (densidadePopC1 < densidadePopC2)
-  + (PIBpCaptaC1 > PIBpCaptaC2) + (superpoderC1 > superpoderC2);
-
-  printf("A carta vencedora é: %d\n\n\n", resultado);
+  printf("A carta vencedora é: %s\n\n\n", resultado);
 
   printf("Fim de Jogo!!\n\n\n");
-
 
   /* Pelo visto, alguns resultados estão sendo arredondados por conta do uso  
    do float em vez de double. Porém, como o uso do float é um dos requisitos  
