@@ -144,7 +144,14 @@ int main() {
         pontosC1 += (PIBpCaptaC1 > PIBpCaptaC2);
         pontosC1 += (superpoderC1 > superpoderC2);
 
-        pontosC2 = 7 - pontosC1; // Para se não for ponto da Carta 1, então vai ser a Carta 2
+        pontosC2 = (populacaoC1 < populacaoC2) +
+           (areaC1 < areaC2) +
+           (PIBC1 < PIBC2) +
+           (pontoTC1 < pontoTC2) +
+           (densidadePopC1 > densidadePopC2) +
+           (PIBpCaptaC1 < PIBpCaptaC2) +
+           (superpoderC1 < superpoderC2);
+
         char *resultado = (pontosC1 > pontosC2) ? "Carta 1" : "Carta 2";
 
   printf("---------------- Comparação das Cartas ----------------\n\n");
