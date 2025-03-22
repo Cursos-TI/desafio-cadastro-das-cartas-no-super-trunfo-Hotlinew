@@ -30,7 +30,7 @@ int main() {
     printf("Escolha uma letra de A a H para representar um estado:\n");
     scanf(" %c", &estadoC1);
 
-    printf("Nome da cidade:\n");
+    printf("Nome da cidade (não use espaço!):\n");
     scanf("%s", cidade01);
 
     printf("Código da carta (exemplo: A01, B03, C02...):\n");
@@ -63,7 +63,7 @@ int main() {
     printf("Escolha uma letra de A a H para representar um estado:\n");
     scanf(" %c", &estadoC2);
 
-    printf("Nome da cidade:\n");
+    printf("Nome da cidade (não use espaço!):\n");
     scanf("%s", cidade02);
 
     printf("Código da carta (exemplo: A01, B03, C02...):\n");
