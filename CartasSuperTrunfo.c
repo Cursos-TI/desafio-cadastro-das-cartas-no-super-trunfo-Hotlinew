@@ -23,68 +23,70 @@ int main() {
   float PIBpCaptaC1, PIBpCaptaC2; //PIB per Capta
   float superpoderC1, superpoderC2; 
   int pontosC1 = 0, pontosC2 = 0;
-  char resultado;
 
   // Entrada de dados - Carta 1!
 
-  printf("Carta 1\n-------------------------------------\n");
-  printf("Escolha uma letra de A a H para representar um estado:\n");
-  scanf(" %c", &estadoC1);
+    printf("Carta 1\n-------------------------------------\n");
+    printf("Escolha uma letra de A a H para representar um estado:\n");
+    scanf(" %c", &estadoC1);
 
-  printf("Nome da cidade:\n");
-  scanf("%s", cidade01);
+    printf("Nome da cidade:\n");
+    scanf("%s", cidade01);
 
-  printf("Código da carta (exemplo: A01, B03, C02...):\n");
-  scanf("%s", codigoC1);
-  
-  printf("População (exemplo: 10000):\n");
-  scanf("%lu", &populacaoC1);
+    printf("Código da carta (exemplo: A01, B03, C02...):\n");
+    scanf("%s", codigoC1);
+    
+    printf("População (exemplo: 10000):\n");
+    scanf("%lu", &populacaoC1);
 
-  printf("Área em km² (exemplo: 1521.11):\n");
-  scanf("%f", &areaC1);
+    printf("Área em km² (exemplo: 1521.11):\n");
+    scanf("%f", &areaC1);
 
-  printf("PIB (exemplo: 699.28 bilhões):\n");
-  scanf("%f" , &PIBC1);
+    printf("PIB (exemplo: 699.28 bilhões):\n");
+    scanf("%f" , &PIBC1);
 
-  printf("Número de pontos turísticos:\n");
-  scanf("%d", &pontoTC1);
+    printf("Número de pontos turísticos:\n");
+    scanf("%d", &pontoTC1);
 
-  PIBC1 *= 1e9;
-  densidadePopC1 = (float) populacaoC1 / areaC1;
-  PIBpCaptaC1 = PIBC1 / (double) populacaoC1;
-  superpoderC1 = (float) pontoTC1 + areaC1 + PIBC1 + PIBpCaptaC1 + (1.0 / densidadePopC1);
+  // Calculo das variáveis da Carta 1
+      PIBC1 *= 1e9;
+      densidadePopC1 = (float) populacaoC1 / areaC1;
+      PIBpCaptaC1 = PIBC1 / (double) populacaoC1;
+      superpoderC1 = (float) pontoTC1 + areaC1 + PIBC1 + PIBpCaptaC1 + (1.0 / densidadePopC1);
 
   printf("\n\n");
   sleep(1);
 
   // Entrada de dados - Carta 2
 
-  printf("Carta 2\n-------------------------------------\n");
-  printf("Escolha uma letra de A a H para representar um estado:\n");
-  scanf(" %c", &estadoC2);
+    printf("Carta 2\n-------------------------------------\n");
+    printf("Escolha uma letra de A a H para representar um estado:\n");
+    scanf(" %c", &estadoC2);
 
-  printf("Nome da cidade:\n");
-  scanf("%s", cidade02);
+    printf("Nome da cidade:\n");
+    scanf("%s", cidade02);
 
-  printf("Código da carta (exemplo: A01, B03, C02...):\n");
-  scanf("%s", codigoC2);
-  
-  printf("População (exemplo: 10000):\n");
-  scanf("%lu", &populacaoC2);
+    printf("Código da carta (exemplo: A01, B03, C02...):\n");
+    scanf("%s", codigoC2);
+    
+    printf("População (exemplo: 10000):\n");
+    scanf("%lu", &populacaoC2);
 
-  printf("Área em km² (exemplo: 1521.11):\n");
-  scanf("%f", &areaC2);
+    printf("Área em km² (exemplo: 1521.11):\n");
+    scanf("%f", &areaC2);
 
-  printf("PIB (exemplo: 699.28 bilhões):\n");
-  scanf("%f", &PIBC2);
+    printf("PIB (exemplo: 699.28 bilhões):\n");
+    scanf("%f", &PIBC2);
 
-  printf("Número de pontos turísticos:\n");
-  scanf("%d", &pontoTC2);
+    printf("Número de pontos turísticos:\n");
+    scanf("%d", &pontoTC2);
 
-  PIBC2 *= 1e9;
-  densidadePopC2 = (float) populacaoC2 / areaC2;
-  PIBpCaptaC2 = PIBC2 / (double) populacaoC2;
-  superpoderC2 = (float) pontoTC2 + areaC2 + PIBC2 + PIBpCaptaC2 + (1.0 / densidadePopC2);
+  // Calculo das variáveis da Carta 2
+
+      PIBC2 *= 1e9;
+      densidadePopC2 = (float) populacaoC2 / areaC2;
+      PIBpCaptaC2 = PIBC2 / (double) populacaoC2;
+      superpoderC2 = (float) pontoTC2 + areaC2 + PIBC2 + PIBpCaptaC2 + (1.0 / densidadePopC2);
 
   printf("\n\n");
   sleep(3);
@@ -103,7 +105,7 @@ int main() {
   printf("Densidade Populacional: %.2f hab/km²\n", densidadePopC1);
   printf("PIB per Capita: %.2f reais\n\n", PIBpCaptaC1);
   printf("Super Poder: %.2f\n", superpoderC1);
-  printf("--------------------------------\n");
+  printf("--------------------------------\n\n");
 
   sleep(1);
 
@@ -120,29 +122,30 @@ int main() {
   printf("Super Poder: %.2f\n", superpoderC2);
   printf("--------------------------------\n\n\n");
 
-  sleep(2);
+  sleep(3);
 
   // Declaração de Variaveis de Resultado
 
-  char *vencedorPop = (populacaoC1 > populacaoC2) ? "Carta 1" : "Carta 2";
-  char *vencedorArea = (areaC1 > areaC2) ? "Carta 1" : "Carta 2";
-  char *vencedorPIB = (PIBC1 > PIBC2) ? "Carta 1" : "Carta 2";
-  char *vencedorPontos = (pontoTC1 > pontoTC2) ? "Carta 1" : "Carta 2";
-  char *vencedorDensidade = (densidadePopC1 < densidadePopC2) ? "Carta 1" : "Carta 2";
-  char *vencedorPIBpCapta = (PIBpCaptaC1 > PIBpCaptaC2) ? "Carta 1" : "Carta 2";
-  char *vencedorSuperPoder = (superpoderC1 > superpoderC2) ? "Carta 1" : "Carta 2";
+    char *vencedorPop = (populacaoC1 > populacaoC2) ? "Carta 1" : "Carta 2";
+    char *vencedorArea = (areaC1 > areaC2) ? "Carta 1" : "Carta 2";
+    char *vencedorPIB = (PIBC1 > PIBC2) ? "Carta 1" : "Carta 2";
+    char *vencedorPontos = (pontoTC1 > pontoTC2) ? "Carta 1" : "Carta 2";
+    char *vencedorDensidade = (densidadePopC1 < densidadePopC2) ? "Carta 1" : "Carta 2";
+    char *vencedorPIBpCapta = (PIBpCaptaC1 > PIBpCaptaC2) ? "Carta 1" : "Carta 2";
+    char *vencedorSuperPoder = (superpoderC1 > superpoderC2) ? "Carta 1" : "Carta 2";
 
-  pontosC1 += (populacaoC1 > populacaoC2);
-  pontosC1 += (areaC1 > areaC2);
-  pontosC1 += (PIBC1 > PIBC2);
-  pontosC1 += (pontoTC1 > pontoTC2);
-  pontosC1 += (densidadePopC1 < densidadePopC2);
-  pontosC1 += (PIBpCaptaC1 > PIBpCaptaC2);
-  pontosC1 += (superpoderC1 > superpoderC2);
+      // Calculo dos pontos do vencedor final
+      
+        pontosC1 += (populacaoC1 > populacaoC2);
+        pontosC1 += (areaC1 > areaC2);
+        pontosC1 += (PIBC1 > PIBC2);
+        pontosC1 += (pontoTC1 > pontoTC2);
+        pontosC1 += (densidadePopC1 < densidadePopC2);
+        pontosC1 += (PIBpCaptaC1 > PIBpCaptaC2);
+        pontosC1 += (superpoderC1 > superpoderC2);
 
-  pontosC2 = 7 - pontosC1; // Para se não for ponto da Carta 1, então vai ser a Carta 2
-
-  resultado = (pontosC1 > pontosC2) ? "Carta 1" : "Carta 2";
+        pontosC2 = 7 - pontosC1; // Para se não for ponto da Carta 1, então vai ser a Carta 2
+        char *resultado = (pontosC1 > pontosC2) ? "Carta 1" : "Carta 2";
 
   printf("---------------- Comparação das Cartas ----------------\n\n");
 
