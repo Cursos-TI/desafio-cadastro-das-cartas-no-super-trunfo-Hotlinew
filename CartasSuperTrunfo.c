@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <locale.h>
 
-/* esses dois ultimos pacotes foram adicionados 
+/* Os pacotes <unistd.h> e <locale.h> foram adicionados 
 para melhorar a estética e deixar o projeto mais legivel!*/
 
 int main() {
@@ -40,14 +40,15 @@ int main() {
   printf("Área em km² (exemplo: 1521.11):\n");
   scanf("%f", &areaC1);
 
-  printf("PIB:\n");
-  scanf("%f", &PIBC1);
+  printf("PIB (exemplo: 699.28 bilhões):\n");
+  scanf("%f" , &PIBC1);
 
   printf("Número de pontos turísticos:\n");
   scanf("%d", &pontoTC1);
 
-  densidadePopC1 = (float) populacaoC1 / areaC1;
-  PIBpCaptaC1 = (float) PIBC1 / populacaoC1;
+  PIBC1 *= 1000000000;
+  densidadePopC1 = (double) populacaoC1 / areaC1;
+  PIBpCaptaC1 = PIBC1 / (double) populacaoC1;
 
   printf("\n\n");
   sleep(1);
@@ -70,14 +71,15 @@ int main() {
   printf("Área em km² (exemplo: 1521.11):\n");
   scanf("%f", &areaC2);
 
-  printf("PIB:\n");
+  printf("PIB (exemplo: 699.28 bilhões):\n");
   scanf("%f", &PIBC2);
 
   printf("Número de pontos turísticos:\n");
   scanf("%d", &pontoTC2);
 
-  densidadePopC2 = (float) populacaoC2 / areaC2;
-  PIBpCaptaC2 = (float) PIBC2 / populacaoC2;
+  PIBC2 *= 1000000000;
+  densidadePopC2 = (double) populacaoC2 / areaC2;
+  PIBpCaptaC2 = PIBC2 / (double) populacaoC2;
 
   printf("\n\n");
   sleep(3);
@@ -90,7 +92,7 @@ int main() {
   printf("Código da carta: %s\n", codigoC1);
   printf("População: %d\n", populacaoC1);
   printf("Área: %.2f km²\n", areaC1);
-  printf("PIB: %.2f\n", PIBC1);
+  printf("PIB: %.2f bilhões de reais\n", PIBC1 / 1000000000);
   printf("Número de Pontos turísticos: %d\n", pontoTC1);
   printf("Densidade Populacional: %.2f hab/km²\n", densidadePopC1);
   printf("PIB per Capita: %.2f reais\n", PIBpCaptaC1);
@@ -104,11 +106,15 @@ int main() {
   printf("Código da carta: %s\n", codigoC2);
   printf("População: %d\n", populacaoC2);
   printf("Área: %.2f km²\n", areaC2);
-  printf("PIB: %.2f\n", PIBC2);
+  printf("PIB: %.2f bilhões de reais\n", PIBC2 / 1000000000);
   printf("Número de Pontos turísticos: %d\n", pontoTC2);
   printf("Densidade Populacional: %.2f hab/km²\n", densidadePopC2);
   printf("PIB per Capita: %.2f reais\n", PIBpCaptaC2);
   printf("--------------------------------\n");
+
+  /* Pelo visto, alguns resultados estão sendo arredondados por conta do uso  
+   do float em vez de double. Porém, como o uso do float é um dos requisitos  
+   do desafio, as variáveis não serão alteradas para corrigir essa ocorrência. */
 
   return 0;
 }
