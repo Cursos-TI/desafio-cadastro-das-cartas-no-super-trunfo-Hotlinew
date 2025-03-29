@@ -126,6 +126,10 @@ int main() {
 
   // Declaração de Variaveis de Resultado
 
+  /* Erro meu ter feito essas variaveis usando operação ternária sem ter o conhecimento
+  de que tal operação é uma estrutura de decisão, algo que foi dito para não se usar no
+  desafio do cadastro das cartas do jogo super trunfo! peço perdão pelo deslize*/
+
     char *vencedorPop = (populacaoC1 > populacaoC2) ? "Carta 1" : "Carta 2";
     char *vencedorArea = (areaC1 > areaC2) ? "Carta 1" : "Carta 2";
     char *vencedorPIB = (PIBC1 > PIBC2) ? "Carta 1" : "Carta 2";
